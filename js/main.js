@@ -1,8 +1,9 @@
 class Task{
-    constructor(id, title, desc){
+    constructor(id, title, desc, status){
         this.id = id;
         this.title = title;
         this.desc = desc;
+        this.status = status;
     }
 };
 
@@ -16,52 +17,84 @@ function deleteTask(id){
     console.log(tasks);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     if(tasks.length == 0){
-        console.log('asd');
         listAdded.innerHTML = `<h3 class='msj__notasks'>Ninguna tarea para hacer</h3>`;
     }
 }
 
-function showTasks(tasks, list){
+function showTasks(tasks){
+    // let container = document.getElementById(list);
+    // console.log(container);
+    // let toWhere;
+    // 
+    //     toWhere = 'DOING'
+    // }else{
+    //     toWhere = 'DONE';
+    // }
+    listAdded.innerHTML = '';
+    listDoing.innerHTML = '';
+    listDone.innerHTML = '';
+    let container = '';
+    let buttonPass = '';
     tasks.forEach((task) => {
-        listAdded.innerHTML += `
+        if(task.status == 'added'){
+            container = document.getElementById('added');
+            buttonPass = `<button class='task__button' onclick=passToDoing(${task.id})>PASS TO DOING</button>`;
+        }else if(task.status == 'doing'){
+            container = document.getElementById('doing');
+            buttonPass = `<button class='task__button' onclick=passToDone(${task.id})>PASS TO DONE</button>`;
+        }else{
+            container = document.getElementById('done');
+            buttonPass = `<button class='task__button' onclick=passToDoing(${task.id})>PASS TO DOING</button>`;
+        }
+        container.innerHTML += `
             <div id=${task.id} class='task'>
                 <h3 class='task__title'>${task.title}</h3>
                 <p class='task__desc'>${task.desc}</p>
-                <button class='task__button' onclick=passToDoing(${task.id})>PASS TO ${list.toUpperCase()}</button>
+                ${buttonPass}
                 <button class='task__button' onclick=deleteTask(${task.id})>DELETE</button>
             </div>
         `;
     });
 }
 
-function passToDoing(task){
-    console.log('Pasando tarea ' + task + ' a DOING');
+function passToDoing(id){
+    console.log(id);
+    tasks.filter(task => task.id === id).map(task => task.status = 'doing');
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    showTasks(tasks);
+}
+function passToDone(id){
+    console.log(id);
+    tasks.filter(task => task.id === id).map(task => task.status = 'done');
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    showTasks(tasks);
 }
 
-let listAdded = document.getElementById('taskAdded');
+// let tasksDoing = [];
+let listAdded = document.getElementById('added');
+let listDoing = document.getElementById('doing');
+let listDone = document.getElementById('done');
 let tasks = JSON.parse(localStorage.getItem('tasks'));
 if(tasks == null || tasks.length == 0){
     tasks = [];
     listAdded.innerHTML = `<h3 class='msj__notasks'>Ninguna tarea para hacer</h3>`;
 }else{
-    showTasks(tasks, 'doing');
+    // tasks.forEach((task)=>{
+        showTasks(tasks);
+    // })
 }
 function addTask(){
     let title = document.getElementById('title').value;
     let desc = document.getElementById('desc').value;
     if(title != '' && desc != ''){
-        let task = new Task(0, title, desc);
+        let task = new Task(0, title, desc, 'added');
         tasks.push(task);
-        let id = tasks.length;
+        let id = Date.now();
         task.id = id;
         let taskJSON = JSON.stringify(tasks);
-        console.log(taskJSON);
         localStorage.setItem('tasks', taskJSON);
-        listAdded.innerHTML = '';
-        showTasks(tasks, 'doing');
+        showTasks(tasks);
     }else{
         alert('No ingreso ningun dato');
     }
-    
-    console.log(tasks);
 }

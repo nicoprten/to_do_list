@@ -18,22 +18,28 @@ body {
   margin: 30px 10px;
   display: flex;
   flex-direction: column;
-  background-color: #74b8a1;
+  background-color: #ebfaf4;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 10px black; }
   .container .container__title {
     font: bold 1.4em 'Rubik';
-    color: #243b34; }
+    background-color: #141414;
+    color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    text-align: center; }
   .container .container__input {
-    background-color: #74b8a1;
+    background-color: #b9dace;
     color: #041410;
     font-size: 1.1em;
     margin: 5px 0;
     padding: 10px;
     border: 2px solid #243b34; }
   .container .container__input:focus {
-    outline: 2px solid white; }
+    outline: 2px solid white;
+    background-color: #141414;
+    color: white; }
   .container .container__button {
     padding: 10px;
     width: 30%;
@@ -50,31 +56,31 @@ body {
     box-shadow: 0 0 10px black;
     transition: 0.3s; }
 
-#taskAdded {
+#added, #doing, #done {
   display: flex;
   flex-wrap: wrap;
   justify-content: start; }
-  #taskAdded .task {
+  #added .task, #doing .task, #done .task {
     background-color: #141414;
     color: white;
     padding: 20px;
     margin: 20px 10px 10px 0;
     box-shadow: 0 0 6px black; }
-    #taskAdded .task .task__title {
+    #added .task .task__title, #doing .task .task__title, #done .task .task__title {
       text-align: center;
       font: italic 1.2em 'Rubik'; }
-    #taskAdded .task .task__desc {
+    #added .task .task__desc, #doing .task .task__desc, #done .task .task__desc {
       margin-top: 6px;
       text-align: center;
       font: inherit 1em 'Rubik'; }
-    #taskAdded .task .task__button {
+    #added .task .task__button, #doing .task .task__button, #done .task .task__button {
       border: none;
       padding: 5px;
       font: italic 0.8em 'Rubik';
       background-color: black;
       color: white;
       margin-top: 10px; }
-    #taskAdded .task .task__button:hover {
+    #added .task .task__button:hover, #doing .task .task__button:hover, #done .task .task__button:hover {
       cursor: pointer;
       outline: 1px solid white; }
 

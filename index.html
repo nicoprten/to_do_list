@@ -9,27 +9,28 @@
 </head>
 <body>
     <div class='max-container'>
+        <!-- LIST TASK ADDED -->
         <div class='container'>
             <h1 class='container__title'>TO DO LIST</h1>
             <input id='title' class='container__input' type='text' placeholder='Task title'>
             <input id='desc' class='container__input' type='text' placeholder='Task description'>
             <button class='container__button' onclick='addTask()'>ADD TASK</button>
-            <div id='taskAdded'>
+            <div id='added'>
             </div>
         </div>
+        <!-- LIST TASK DOING -->
         <div class='container'>
             <h2 class='container__title'>DOING</h2>
-            <!-- <input id='title' class='container__input' type='text' placeholder='Task title'>
-                <input id='desc' class='container__input' type='text' placeholder='Task description'>
-                <button class='container__button' onclick='addTask()'>ADD TASK</button> -->
+            <div id='doing'>
             </div>
-            <div class='container'>
-                <h2 class='container__title'>DONE</h2>
-                <!-- <p class='container__task'></p>
-                    <p class='container__desc'></p> -->
-                    <!-- <button class='container__button' onclick='addTask()'>ADD TASK</button> -->
-                </div>
+        </div>
+        <!-- LIST TASK DONE -->
+        <div class='container'>
+            <h2 class='container__title'>DONE</h2>
+            <div id='done'>
             </div>
+        </div>
+    </div>
     
     <script src='js/main.js'></script>
 </body>

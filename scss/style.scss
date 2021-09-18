@@ -20,16 +20,20 @@ body{
     margin: 30px 10px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(116, 184, 161);
+    background-color: rgb(235, 250, 244);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 10px black;
     .container__title{
         font: bold 1.4em 'Rubik';
-        color: rgb(36, 59, 52);
+        background-color: rgb(20, 20, 20);
+        color: white;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        text-align: center;
     }
     .container__input{
-        background-color: rgb(116, 184, 161);
+        background-color: rgb(185, 218, 206);
         color: rgb(4, 20, 16);
         font-size: 1.1em;
         margin: 5px 0;
@@ -38,6 +42,8 @@ body{
     }
     .container__input:focus{
         outline: 2px solid white;
+        background-color: rgb(20, 20, 20);
+        color: white;
     }
     .container__button{
         padding: 10px;
@@ -57,7 +63,7 @@ body{
         transition: 0.3s;
     }
 }
-#taskAdded{
+#added, #doing, #done{
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
