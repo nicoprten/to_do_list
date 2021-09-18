@@ -1,7 +1,7 @@
 TO DO LIST <i>(in progress)</i>
 <p>HTML - SCSS - JS</p>
 
-![Platform](./to_do_list_01.jpg)
+![Tasks](./to_do_list_01.jpg)
 
 <h3>Adding tasks:</h3>
 
