@@ -1,5 +1,5 @@
 TO DO LIST <i>(in progress)</i>
-HTML - SCSS - JS
+<p>HTML - SCSS - JS</p>
 
 ![Platform](./to_do_list_01.jpg)
 
