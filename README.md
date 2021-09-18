@@ -1,5 +1,5 @@
-<h1>TO DO LIST <i><b>(in progress)</b></i></h1>
-<p>HTML - SCSS - JS</p>
+<h1>TO DO LIST</h1>
+<p><i><b>HTML - SCSS - JS</b></i></p>
 
 ![Tasks](./to_do_list_01.jpg)
 
