@@ -60,12 +60,12 @@ body{
 #taskAdded{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
     .task{
         background-color: rgb(20, 20, 20);
         color: white;
         padding: 20px;
-        margin: 20px 0 10px 0;
+        margin: 20px 10px 10px 0;
         box-shadow: 0 0 6px black;
         .task__title{
             text-align: center;

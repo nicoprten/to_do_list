@@ -53,12 +53,12 @@ body {
 #taskAdded {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: start; }
   #taskAdded .task {
     background-color: #141414;
     color: white;
     padding: 20px;
-    margin: 20px 0 10px 0;
+    margin: 20px 10px 10px 0;
     box-shadow: 0 0 6px black; }
     #taskAdded .task .task__title {
       text-align: center;
