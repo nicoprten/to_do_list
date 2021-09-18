@@ -58,13 +58,11 @@ function showTasks(tasks){
 }
 
 function passToDoing(id){
-    console.log(id);
     tasks.filter(task => task.id === id).map(task => task.status = 'doing');
     localStorage.setItem('tasks', JSON.stringify(tasks));
     showTasks(tasks);
 }
 function passToDone(id){
-    console.log(id);
     tasks.filter(task => task.id === id).map(task => task.status = 'done');
     localStorage.setItem('tasks', JSON.stringify(tasks));
     showTasks(tasks);

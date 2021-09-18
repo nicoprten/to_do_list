@@ -12,7 +12,7 @@
 body{
     background-color: #dccf6a;
     iframe{
-        margin: 0 auto;
+        margin: 20px auto;
         display: block;
     }
 }
@@ -40,29 +40,25 @@ body{
         font-size: 1.1em;
         margin: 5px 0;
         padding: 10px;
-        background-color: #ac5859;
         color: white;
-        border: 2px solid white;
+        background-color: rgb(20, 20, 20);
+        border: 2px solid #9a6961;
     }
     .container__input:focus{
-        background-color: rgb(20, 20, 20);
-        color: white;
-        outline: 2px solid #9a6961;
+        box-shadow: 0 6px 16px black;
+        outline: 2px solid black;
     }
     .container__button{
         padding: 10px;
-        width: 30%;
+        width: 40%;
         font: bold 1.2em 'Rubik';
-        background-color: #ac5859;
-        color: rgb(20, 20, 20);
-        border: 2px solid white;
+        color: white;
+        background-color: rgb(20, 20, 20);
+        border: 2px solid #9a6961;
         margin: 10px 0;
     }
     .container__button:hover{
         cursor: pointer;
-        background-color: rgb(20, 20, 20);
-        color: white;
-        border: 2px solid #9a6961;
         box-shadow: 0 0 10px black;
         transition: 0.3s;
     }
@@ -85,11 +81,11 @@ body{
         .task__desc{
             margin-top: 6px;
             text-align: center;
-            font: inherit 1em 'Rubik';
+            color:#ac5859;
         }
         .task__button{
             border: none;
-            padding: 5px;
+            padding: 8px;
             font: italic 0.8em 'Rubik';
             background-color: black;
             color: white;
@@ -106,4 +102,10 @@ body{
     text-align: center;
     padding: 10px;
     font: italic 1.2em 'Rubik';
+}
+
+@media screen and (max-width: 768px){
+    .max-container{
+        flex-direction: column;
+    }
 }
