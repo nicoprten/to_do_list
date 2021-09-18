@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+::placeholder {
+  color: #041410; }
+
+body {
+  background-color: #34554a; }
+
+.max-container {
+  display: flex; }
+
+.container {
+  flex-grow: 1;
+  margin: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #74b8a1;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px black; }
+  .container .container__title {
+    font: bold 1.4em 'Rubik';
+    color: #243b34; }
+  .container .container__input {
+    background-color: #74b8a1;
+    color: #041410;
+    font-size: 1.1em;
+    margin: 5px 0;
+    padding: 10px;
+    border: 2px solid #243b34; }
+  .container .container__input:focus {
+    outline: 2px solid white; }
+  .container .container__button {
+    padding: 10px;
+    width: 30%;
+    background-color: #74b8a1;
+    font: bold 1.2em 'Rubik';
+    color: #243b34;
+    border: 2px solid #7ec9b2;
+    margin: 10px 0; }
+  .container .container__button:hover {
+    cursor: pointer;
+    background-color: #141414;
+    color: white;
+    border: 2px solid #87f7d5;
+    box-shadow: 0 0 10px black;
+    transition: 0.3s; }
+
+#taskAdded {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  #taskAdded .task {
+    background-color: #141414;
+    color: white;
+    padding: 20px;
+    margin: 20px 0 10px 0;
+    box-shadow: 0 0 6px black; }
+    #taskAdded .task .task__title {
+      text-align: center;
+      font: italic 1.2em 'Rubik'; }
+    #taskAdded .task .task__desc {
+      margin-top: 6px;
+      text-align: center;
+      font: inherit 1em 'Rubik'; }
+    #taskAdded .task .task__button {
+      border: none;
+      padding: 5px;
+      font: italic 0.8em 'Rubik';
+      background-color: black;
+      color: white;
+      margin-top: 10px; }
+    #taskAdded .task .task__button:hover {
+      cursor: pointer;
+      outline: 1px solid white; }
+
+.msj__notasks {
+  text-align: center;
+  padding: 10px;
+  font: italic 1.2em 'Rubik'; }

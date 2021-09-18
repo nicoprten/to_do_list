@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap');
+// font-family: 'Rubik', sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::placeholder{
+    color: rgb(4, 20, 16);
+}
+body{
+    background-color: rgb(52, 85, 74);
+}
+.max-container{
+    display: flex;
+}
+.container{
+    flex-grow: 1;
+    margin: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(116, 184, 161);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px black;
+    .container__title{
+        font: bold 1.4em 'Rubik';
+        color: rgb(36, 59, 52);
+    }
+    .container__input{
+        background-color: rgb(116, 184, 161);
+        color: rgb(4, 20, 16);
+        font-size: 1.1em;
+        margin: 5px 0;
+        padding: 10px;
+        border: 2px solid rgb(36, 59, 52);
+    }
+    .container__input:focus{
+        outline: 2px solid white;
+    }
+    .container__button{
+        padding: 10px;
+        width: 30%;
+        background-color: rgb(116, 184, 161);
+        font: bold 1.2em 'Rubik';
+        color: rgb(36, 59, 52);
+        border: 2px solid rgb(126, 201, 178);
+        margin: 10px 0;
+    }
+    .container__button:hover{
+        cursor: pointer;
+        background-color: rgb(20, 20, 20);
+        color: white;
+        border: 2px solid rgb(135, 247, 213);
+        box-shadow: 0 0 10px black;
+        transition: 0.3s;
+    }
+}
+#taskAdded{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .task{
+        background-color: rgb(20, 20, 20);
+        color: white;
+        padding: 20px;
+        margin: 20px 0 10px 0;
+        box-shadow: 0 0 6px black;
+        .task__title{
+            text-align: center;
+            font: italic 1.2em 'Rubik';
+        }
+        .task__desc{
+            margin-top: 6px;
+            text-align: center;
+            font: inherit 1em 'Rubik';
+        }
+        .task__button{
+            border: none;
+            padding: 5px;
+            font: italic 0.8em 'Rubik';
+            background-color: black;
+            color: white;
+            margin-top: 10px;
+        }
+        .task__button:hover{
+            cursor: pointer;
+            outline: 1px solid white;
+        }
+    }
+}
+
+.msj__notasks{
+    text-align: center;
+    padding: 10px;
+    font: italic 1.2em 'Rubik';
+}
