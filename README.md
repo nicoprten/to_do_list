@@ -1,4 +1,4 @@
-TO DO LIST <italic>(in progress)</italic>
+TO DO LIST <i>(in progress)</i>
 
 ![Platform](./to_do_list_01.jpg)
 
