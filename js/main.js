@@ -8,16 +8,15 @@ class Task{
 };
 
 function deleteTask(id){
-    console.log(listAdded)
     let containerID = document.getElementById(id);
-    containerID.remove();
+    $(`#${id}`).animate({opacity: '0'}, 1500);
     tasks = tasks.filter(task => 
         task.id != id
     );
-    console.log(tasks);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     if(tasks.length == 0){
-        listAdded.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
+        listAdded.innerHTML = `<h3 id='erased' class='msj__notasks'>No other task to do...</h3>`;
+        $('#erased').delay(2750).slideUp(800);
     }
 }
 
@@ -84,7 +83,6 @@ function addTask(){
     }else{
         alert('Enter a task please.');
     }
-    console.log(title);
     document.getElementById('title').value = '';
     document.getElementById('desc').value = '';
 };
@@ -97,10 +95,9 @@ let listDone = document.getElementById('done');
 let tasks = JSON.parse(localStorage.getItem('tasks'));
 if(tasks == null || tasks.length == 0){
     tasks = [];
-    listAdded.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
+    listAdded.innerHTML = `<h3 id='erased' class='msj__notasks'>No other task to do...</h3>`;
+    $('#erased').delay(2750).slideUp(800);
 }else{
-    // tasks.forEach((task)=>{
         showTasks(tasks);
-    // })
 }
 
