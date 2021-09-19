@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 ::placeholder{
-    color: white;
+    color: rgb(148, 148, 148);
 }
 body{
     background-color: #dccf6a;
@@ -33,6 +33,7 @@ body{
         background-color: rgb(20, 20, 20);
         color: white;
         border-radius: 20px 20px 0 0;
+        border: 2px solid #9a6961;
         padding: 20px;
         text-align: center;
     }
@@ -83,17 +84,22 @@ body{
             text-align: center;
             color:#ac5859;
         }
-        .task__button{
-            border: none;
-            padding: 8px;
-            font: italic 0.8em 'Rubik';
-            background-color: black;
-            color: white;
-            margin-top: 10px;
-        }
-        .task__button:hover{
-            cursor: pointer;
-            outline: 1px solid white;
+        .task__buttons{
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            .task__button{
+                border: none;
+                padding: 8px;
+                font: italic 0.8em 'Rubik';
+                background-color: black;
+                color: white;
+                margin-top: 10px;
+            }
+            .task__button:hover{
+                cursor: pointer;
+                outline: 1px solid white;
+            }
         }
     }
 }

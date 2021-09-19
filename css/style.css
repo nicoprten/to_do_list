@@ -5,7 +5,7 @@
   box-sizing: border-box; }
 
 ::placeholder {
-  color: white; }
+  color: #949494; }
 
 body {
   background-color: #dccf6a; }
@@ -30,6 +30,7 @@ body {
     background-color: #141414;
     color: white;
     border-radius: 20px 20px 0 0;
+    border: 2px solid #9a6961;
     padding: 20px;
     text-align: center; }
   .container .container__input {
@@ -73,16 +74,20 @@ body {
       margin-top: 6px;
       text-align: center;
       color: #ac5859; }
-    #added .task .task__button, #doing .task .task__button, #done .task .task__button {
-      border: none;
-      padding: 8px;
-      font: italic 0.8em 'Rubik';
-      background-color: black;
-      color: white;
-      margin-top: 10px; }
-    #added .task .task__button:hover, #doing .task .task__button:hover, #done .task .task__button:hover {
-      cursor: pointer;
-      outline: 1px solid white; }
+    #added .task .task__buttons, #doing .task .task__buttons, #done .task .task__buttons {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column; }
+      #added .task .task__buttons .task__button, #doing .task .task__buttons .task__button, #done .task .task__buttons .task__button {
+        border: none;
+        padding: 8px;
+        font: italic 0.8em 'Rubik';
+        background-color: black;
+        color: white;
+        margin-top: 10px; }
+      #added .task .task__buttons .task__button:hover, #doing .task .task__buttons .task__button:hover, #done .task .task__buttons .task__button:hover {
+        cursor: pointer;
+        outline: 1px solid white; }
 
 .msj__notasks {
   text-align: center;
