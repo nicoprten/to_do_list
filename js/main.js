@@ -87,14 +87,16 @@ function addTask(){
     document.getElementById('desc').value = '';
 };
 
-
+let fecha = new Date();
 let listAdded = document.getElementById('added');
 let listDoing = document.getElementById('doing');
 let listDone = document.getElementById('done');
+let popUps = document.getElementById('erased');
 let tasks = JSON.parse(localStorage.getItem('tasks'));
 if(tasks == null || tasks.length == 0){
     tasks = [];
-    listAdded.innerHTML = `<h3 id='erased' class='msj__notasks'>No other task to do...</h3>`;
+    popUps.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
+    getFeriados();
     $('#erased').delay(2750).slideUp(800);
 }else{
         showTasks(tasks);
@@ -104,19 +106,28 @@ if(tasks == null || tasks.length == 0){
 // TODO obtener el año actual
 
 function getFeriados(){
-    let fecha = new Date();
-    console.log(fecha);
-    let mes = fecha.getMonth() + 1;
-    fetch('http://nolaborables.com.ar/api/v2/feriados/2021')
+    let año = fecha.getFullYear();
+    fetch(`http://nolaborables.com.ar/api/v2/feriados/${año}`)
     .then(response => response.json())
-    .then((data) => {
-        console.log(mes);
-        let feriados = data.filter(feriado => feriado.mes === mes);
-        console.log(feriados);
-    });
+    .then((feriados) => {
+        feriados.forEach(feriado=> console.log(feriado.mes + ',' + feriado.dia));
+        mostrarProxFeriado(feriados);
+    })
     // .then(data => console.log(data);
-}     
-getFeriados();
+};
+function mostrarProxFeriado(feriados){
+    let mes = fecha.getMonth() + 4;
+    console.log(mes)
+    let dia = fecha.getDate() + 2;
+    let proxFeriado = [];
+    proxFeriado = feriados.filter(feriado => feriado.mes === mes).filter(feriado => feriado.dia >= dia);
+    if(proxFeriado.length === 0){
+        proxFeriado = feriados.filter(feriado => feriado.mes === mes + 1);
+    }
+    popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
+};
+
+
 // async function getFeriados(){
 //     const url = await fetch('http://nolaborables.com.ar/api/v2/feriados/2021');
 //     return await url.json();

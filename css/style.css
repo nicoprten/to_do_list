@@ -90,9 +90,9 @@ body {
         outline: 1px solid white; }
 
 .msj__notasks {
-  text-align: center;
   padding: 10px;
-  font: italic 1.2em 'Rubik'; }
+  font: italic 1.2em 'Rubik';
+  position: relative; }
 
 @media screen and (max-width: 768px) {
   .max-container {
