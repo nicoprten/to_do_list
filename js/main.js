@@ -116,9 +116,9 @@ function getFeriados(){
     // .then(data => console.log(data);
 };
 function mostrarProxFeriado(feriados){
-    let mes = fecha.getMonth() + 4;
+    let mes = fecha.getMonth() + 1;
     console.log(mes)
-    let dia = fecha.getDate() + 2;
+    let dia = fecha.getDate();
     let proxFeriado = [];
     proxFeriado = feriados.filter(feriado => feriado.mes === mes).filter(feriado => feriado.dia >= dia);
     if(proxFeriado.length === 0){
