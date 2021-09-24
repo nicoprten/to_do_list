@@ -88,7 +88,6 @@ function addTask(){
 };
 
 
-// let tasksDoing = [];
 let listAdded = document.getElementById('added');
 let listDoing = document.getElementById('doing');
 let listDone = document.getElementById('done');
@@ -101,3 +100,24 @@ if(tasks == null || tasks.length == 0){
         showTasks(tasks);
 }
 
+// Get de feriados no laborables 
+// TODO obtener el año actual
+
+function getFeriados(){
+    let fecha = new Date();
+    console.log(fecha);
+    let mes = fecha.getMonth() + 1;
+    fetch('http://nolaborables.com.ar/api/v2/feriados/2021')
+    .then(response => response.json())
+    .then((data) => {
+        console.log(mes);
+        let feriados = data.filter(feriado => feriado.mes === mes);
+        console.log(feriados);
+    });
+    // .then(data => console.log(data);
+}     
+getFeriados();
+// async function getFeriados(){
+//     const url = await fetch('http://nolaborables.com.ar/api/v2/feriados/2021');
+//     return await url.json();
+// }
