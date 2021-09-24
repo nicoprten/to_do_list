@@ -27,13 +27,19 @@ if(tasks === null || tasks.length === 0){
 
 function deleteTask(id){
     let containerID = document.getElementById(id);
-    $(`#${id}`).animate({opacity: '0'}, 1500);
+    $(`#${id}`).hide();
+    popUps.innerHTML = `<h3 class='msj__notasks'>Task eliminated...</h3>`;
+    popUps.style.display = 'block';
+    $('#erased').delay(2750).slideUp(800);
     tasks = tasks.filter(task => 
         task.id != id
     );
     localStorage.setItem('tasks', JSON.stringify(tasks));
     if(tasks.length === 0 || tasks.length === null){
-        popUps.innerHTML = `<h3 class='msj__notasks'>Task eliminated...</h3>`;
+        listAdded.innerHTML = '';
+        listDoing.innerHTML = '';
+        listDone.innerHTML = '';
+        popUps.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
         popUps.style.display = 'block';
         $('#erased').delay(2750).slideUp(800);
     }
