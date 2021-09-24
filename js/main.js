@@ -7,6 +7,24 @@ class Task{
     }
 };
 
+
+let fecha = new Date();
+let año = fecha.getFullYear();
+let listAdded = document.getElementById('added');
+let listDoing = document.getElementById('doing');
+let listDone = document.getElementById('done');
+let popUps = document.getElementById('erased');
+let tasks = JSON.parse(localStorage.getItem('tasks'));
+if(tasks === null || tasks.length === 0){
+    tasks = [];
+    popUps.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
+    getFeriados();
+    $('#erased').delay(2750).slideUp(800);
+}else{
+    showTasks(tasks);
+}
+
+
 function deleteTask(id){
     let containerID = document.getElementById(id);
     $(`#${id}`).animate({opacity: '0'}, 1500);
@@ -14,8 +32,9 @@ function deleteTask(id){
         task.id != id
     );
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    if(tasks.length == 0){
-        listAdded.innerHTML = `<h3 id='erased' class='msj__notasks'>No other task to do...</h3>`;
+    if(tasks.length === 0 || tasks.length === null){
+        popUps.innerHTML = `<h3 class='msj__notasks'>Task eliminated...</h3>`;
+        popUps.style.display = 'block';
         $('#erased').delay(2750).slideUp(800);
     }
 }
@@ -72,7 +91,7 @@ function passToAdded(id){
 function addTask(){
     let title = document.getElementById('title').value;
     let desc = document.getElementById('desc').value;
-    if(title != '' && desc != ''){
+    if(title !== '' && desc !== ''){
         let task = new Task(0, title, desc, 'added');
         tasks.push(task);
         let id = Date.now();
@@ -87,48 +106,26 @@ function addTask(){
     document.getElementById('desc').value = '';
 };
 
-let fecha = new Date();
-let listAdded = document.getElementById('added');
-let listDoing = document.getElementById('doing');
-let listDone = document.getElementById('done');
-let popUps = document.getElementById('erased');
-let tasks = JSON.parse(localStorage.getItem('tasks'));
-if(tasks == null || tasks.length == 0){
-    tasks = [];
-    popUps.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
-    getFeriados();
-    $('#erased').delay(2750).slideUp(800);
-}else{
-        showTasks(tasks);
-}
-
 // Get de feriados no laborables 
 // TODO obtener el año actual
 
 function getFeriados(){
-    let año = fecha.getFullYear();
     fetch(`http://nolaborables.com.ar/api/v2/feriados/${año}`)
     .then(response => response.json())
     .then((feriados) => {
-        feriados.forEach(feriado=> console.log(feriado.mes + ',' + feriado.dia));
         mostrarProxFeriado(feriados);
     })
-    // .then(data => console.log(data);
 };
 function mostrarProxFeriado(feriados){
     let mes = fecha.getMonth() + 1;
-    console.log(mes)
     let dia = fecha.getDate();
-    let proxFeriado = [];
-    proxFeriado = feriados.filter(feriado => feriado.mes === mes).filter(feriado => feriado.dia >= dia);
-    if(proxFeriado.length === 0){
+    let proxFeriado = feriados.filter(feriado => feriado.mes === mes).filter(feriado => feriado.dia >= dia);
+    if(proxFeriado.length === 0 && mes !== 12){
         proxFeriado = feriados.filter(feriado => feriado.mes === mes + 1);
+        popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
+    }else if(mes === 12 && dia > 25){
+        popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: Año Nuevo 1/1</h3>`;
+    }else{
+        popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
     }
-    popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
 };
-
-
-// async function getFeriados(){
-//     const url = await fetch('http://nolaborables.com.ar/api/v2/feriados/2021');
-//     return await url.json();
-// }

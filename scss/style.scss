@@ -11,6 +11,7 @@
 }
 body{
     background-color: #dccf6a;
+    position: relative;
     iframe{
         margin: 20px auto;
         display: block;
@@ -104,10 +105,18 @@ body{
     }
 }
 
-.msj__notasks{
+#erased{
     padding: 10px;
-    font: italic 1.2em 'Rubik';
-    position: relative;
+    font: italic 1em 'Rubik';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color:#396369;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    .msj__notasks{
+        font-weight: inherit;
+    }
 }
 
 @media screen and (max-width: 768px){
