@@ -19,7 +19,7 @@ if(tasks === null || tasks.length === 0){
     tasks = [];
     popUps.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
     getFeriados();
-    $('#erased').delay(2750).slideUp(800);
+    $('#erased').delay(3000).slideUp(800);
 }else{
     showTasks(tasks);
 }
@@ -30,7 +30,7 @@ function deleteTask(id){
     $(`#${id}`).hide();
     popUps.innerHTML = `<h3 class='msj__notasks'>Task eliminated...</h3>`;
     popUps.style.display = 'block';
-    $('#erased').delay(2750).slideUp(800);
+    $('#erased').delay(1500).slideUp(800);
     tasks = tasks.filter(task => 
         task.id != id
     );
@@ -41,7 +41,7 @@ function deleteTask(id){
         listDone.innerHTML = '';
         popUps.innerHTML = `<h3 class='msj__notasks'>No other task to do...</h3>`;
         popUps.style.display = 'block';
-        $('#erased').delay(2750).slideUp(800);
+        $('#erased').delay(1500).slideUp(800);
     }
 }
 
@@ -106,7 +106,9 @@ function addTask(){
         localStorage.setItem('tasks', taskJSON);
         showTasks(tasks);
     }else{
-        alert('Enter a task please.');
+        popUps.innerHTML = `<h3 class='msj__notasks'>Enter a task please...</h3>`;
+        popUps.style.display = 'block';
+        $('#erased').delay(1500).slideUp(800);
     }
     document.getElementById('title').value = '';
     document.getElementById('desc').value = '';
@@ -128,10 +130,10 @@ function mostrarProxFeriado(feriados){
     let proxFeriado = feriados.filter(feriado => feriado.mes === mes).filter(feriado => feriado.dia >= dia);
     if(proxFeriado.length === 0 && mes !== 12){
         proxFeriado = feriados.filter(feriado => feriado.mes === mes + 1);
-        popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
+        popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
     }else if(mes === 12 && dia > 25){
-        popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: Año Nuevo 1/1</h3>`;
+        popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: Año Nuevo 1/1</h3>`;
     }else{
-        popUps.innerHTML += `<h3 class='msj__notasks'>Próximo feriado: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
+        popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
     }
 };
