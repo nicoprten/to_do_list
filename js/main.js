@@ -22,6 +22,7 @@ if(tasks === null || tasks.length === 0){
     $('#erased').delay(3000).slideUp(800);
 }else{
     showTasks(tasks);
+    $('#erased').hide();
 }
 
 

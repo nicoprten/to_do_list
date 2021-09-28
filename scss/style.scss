@@ -1,3 +1,8 @@
+// VARIABLES
+$azul-base: #396369;
+$negro-base: rgb(14, 14, 14);
+
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap');
 // font-family: 'Rubik', sans-serif;
 
@@ -10,7 +15,7 @@
     color: rgb(148, 148, 148);
 }
 body{
-    background-color: #dccf6a;
+    background-color: #ffffff;
     position: relative;
     iframe{
         margin: 20px auto;
@@ -19,19 +24,23 @@ body{
 }
 .max-container{
     display: flex;
+    align-items: start;
 }
 .container{
     flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
     margin: 30px 10px;
     display: flex;
     flex-direction: column;
-    background-color: #396369;
+    background-color: $azul-base;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 10px black;
+    width: 100%;
     .container__title{
         font: bold 1.4em 'Rubik';
-        background-color: rgb(20, 20, 20);
+        background-color: black;
         color: white;
         border-radius: 20px 20px 0 0;
         border: 2px solid #9a6961;
@@ -43,7 +52,7 @@ body{
         margin: 5px 0;
         padding: 10px;
         color: white;
-        background-color: rgb(20, 20, 20);
+        background-color: $negro-base;
         border: 2px solid #9a6961;
     }
     .container__input:focus{
@@ -52,10 +61,9 @@ body{
     }
     .container__button{
         padding: 10px;
-        width: 40%;
         font: bold 1.2em 'Rubik';
         color: white;
-        background-color: rgb(20, 20, 20);
+        background-color: black;
         border: 2px solid #9a6961;
         margin: 10px 0;
     }
@@ -70,12 +78,13 @@ body{
     flex-wrap: wrap;
     justify-content: start;
     .task{
-        background-color: rgb(20, 20, 20);
+        background-color: black;
         color: white;
         padding: 20px;
         margin: 20px 10px 10px 0;
         box-shadow: 0 0 6px black;
         border: 2px solid #9a6961;
+        flex-grow: 1;
         .task__title{
             text-align: center;
             font: italic 1.2em 'Rubik';
@@ -109,9 +118,9 @@ body{
     padding: 10px;
     font: italic 1em 'Rubik';
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color:#396369;
+    bottom: -50px;
+    left: 10px;
+    background-color: $azul-base;
     box-shadow: 0 0 10px black;
     border-radius: 10px;
     .msj__notasks{
@@ -122,5 +131,6 @@ body{
 @media screen and (max-width: 768px){
     .max-container{
         flex-direction: column;
+        align-items: center;
     }
 }
