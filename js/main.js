@@ -25,6 +25,20 @@ if(tasks === null || tasks.length === 0){
     $('#erased').hide();
 }
 
+let sdasds = document.getElementsByClassName('container__input');
+console.log(sdasds)
+
+let inputs = [...document.getElementsByClassName('container__input')];
+console.log(inputs)
+inputs.forEach((input) => {
+    console.log(input);
+    input.addEventListener('keypress', function(e){
+        if(e.key === 'Enter'){
+            addTask();
+        }
+    })
+})
+
 function deleteTask(id){
     let containerID = document.getElementById(id);
     $(`#${id}`).hide();
@@ -54,16 +68,16 @@ function showTasks(tasks){
     tasks.forEach((task) => {
         if(task.status == 'added'){
             container = document.getElementById('added');
-            buttonPass = `<button class='task__button' onclick=passToDoing(${task.id})>PASS TO DOING</button>`;
-            buttonPass += `<button class='task__button' onclick=passToDone(${task.id})>PASS TO DONE</button>`;
+            buttonPass = `<button class='task__button' onclick=passToDoing(${task.id})>TO DOING</button>`;
+            buttonPass += `<button class='task__button' onclick=passToDone(${task.id})>TO DONE</button>`;
         }else if(task.status == 'doing'){
             container = document.getElementById('doing');
-            buttonPass = `<button class='task__button' onclick=passToAdded(${task.id})>PASS TO ADDED</button>`;
-            buttonPass += `<button class='task__button' onclick=passToDone(${task.id})>PASS TO DONE</button>`;
+            buttonPass = `<button class='task__button' onclick=passToAdded(${task.id})>TO ADDED</button>`;
+            buttonPass += `<button class='task__button' onclick=passToDone(${task.id})>TO DONE</button>`;
         }else{
             container = document.getElementById('done');
-            buttonPass = `<button class='task__button' onclick=passToAdded(${task.id})>PASS TO ADDED</button>`;
-            buttonPass += `<button class='task__button' onclick=passToDoing(${task.id})>PASS TO DOING</button>`;
+            buttonPass = `<button class='task__button' onclick=passToAdded(${task.id})>TO ADDED</button>`;
+            buttonPass += `<button class='task__button' onclick=passToDoing(${task.id})>TO DOING</button>`;
         }
         container.innerHTML += `
             <div id=${task.id} class='task'>

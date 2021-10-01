@@ -5,7 +5,7 @@
   box-sizing: border-box; }
 
 ::placeholder {
-  color: #949494; }
+  color: #ebecf0; }
 
 body {
   background-color: #ffffff;
@@ -16,9 +16,10 @@ body {
 
 .max-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-gap: 10px;
-  align-items: start; }
+  align-items: start;
+  padding-top: 50px; }
 
 .container {
   display: flex;
@@ -26,15 +27,13 @@ body {
   margin: 30px 10px;
   background-color: #ebecf0;
   padding: 20px;
-  box-shadow: 0 0 10px black; }
+  box-shadow: 0 0 10px black;
+  border-radius: 5px; }
   .container .container__title {
     font: bold 1.4em 'Rubik';
-    background-color: black;
-    color: white;
-    border-radius: 20px 20px 0 0;
-    border: 2px solid #9a6961;
-    padding: 20px;
-    text-align: center; }
+    color: black;
+    text-align: center;
+    margin: 10px 0; }
   .container .container__input {
     font-size: 1.1em;
     margin: 5px 0;
@@ -44,7 +43,8 @@ body {
     border: 2px solid #9a6961; }
   .container .container__input:focus {
     box-shadow: 0 6px 16px black;
-    outline: 2px solid black; }
+    background-color: #ebecf0;
+    color: black; }
   .container .container__button {
     padding: 10px;
     font: bold 1.2em 'Rubik';
@@ -54,20 +54,24 @@ body {
     margin: 10px 0; }
   .container .container__button:hover {
     cursor: pointer;
+    background-color: #ffffff;
+    color: black;
     box-shadow: 0 0 10px black;
-    transition: 0.3s; }
+    transition: 0.3s;
+    border: 2px solid black; }
 
 #added, #doing, #done {
   display: flex;
   flex-direction: column; }
   #added .task, #doing .task, #done .task {
-    background-color: black;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     padding: 20px;
     margin: 20px 10px 10px 0;
-    box-shadow: 0 0 6px black;
-    border: 2px solid #9a6961;
-    flex-grow: 1; }
+    box-shadow: 0 0 8px black;
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: 5px; }
     #added .task .task__title, #doing .task .task__title, #done .task .task__title {
       text-align: center;
       font: italic 1.2em 'Rubik'; }
@@ -77,27 +81,31 @@ body {
       color: #ac5859; }
     #added .task .task__buttons, #doing .task .task__buttons, #done .task .task__buttons {
       display: flex;
-      justify-content: space-around;
-      flex-direction: column; }
+      justify-content: space-around; }
       #added .task .task__buttons .task__button, #doing .task .task__buttons .task__button, #done .task .task__buttons .task__button {
         border: none;
         padding: 8px;
         font: italic 0.8em 'Rubik';
         background-color: black;
         color: white;
-        margin-top: 10px; }
+        margin-top: 10px;
+        flex: 1 0; }
       #added .task .task__buttons .task__button:hover, #doing .task .task__buttons .task__button:hover, #done .task .task__buttons .task__button:hover {
         cursor: pointer;
-        outline: 1px solid white; }
+        box-shadow: 0 0 8px black;
+        background-color: #ffffff;
+        color: black; }
 
 #erased {
   padding: 10px;
   font: italic 1em 'Rubik';
   position: absolute;
-  bottom: -50px;
-  left: 10px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
   background-color: #ebecf0;
-  box-shadow: 6px 6px 10px black; }
+  box-shadow: 0 0 10px black; }
   #erased .msj__notasks {
     font-weight: inherit; }
 
