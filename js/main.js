@@ -25,7 +25,6 @@ if(tasks === null || tasks.length === 0){
     $('#erased').hide();
 }
 
-
 function deleteTask(id){
     let containerID = document.getElementById(id);
     $(`#${id}`).hide();

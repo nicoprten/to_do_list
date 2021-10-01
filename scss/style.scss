@@ -1,7 +1,8 @@
 // VARIABLES
 $azul-base: #396369;
 $negro-base: rgb(14, 14, 14);
-
+$gris-base: #ebecf0;
+$blanco-base: #ffffff;
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap');
 // font-family: 'Rubik', sans-serif;
@@ -15,7 +16,7 @@ $negro-base: rgb(14, 14, 14);
     color: rgb(148, 148, 148);
 }
 body{
-    background-color: #ffffff;
+    background-color: $blanco-base;
     position: relative;
     iframe{
         margin: 20px auto;
@@ -23,21 +24,21 @@ body{
     }
 }
 .max-container{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
     align-items: start;
 }
 .container{
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0px;
-    margin: 30px 10px;
     display: flex;
     flex-direction: column;
-    background-color: $azul-base;
+    // flex-grow: 1;
+    // flex-shrink: 1;
+    // flex-basis: 0px;
+    margin: 30px 10px;
+    background-color: $gris-base;
     padding: 20px;
-    border-radius: 15px;
     box-shadow: 0 0 10px black;
-    width: 100%;
     .container__title{
         font: bold 1.4em 'Rubik';
         background-color: black;
@@ -75,8 +76,7 @@ body{
 }
 #added, #doing, #done{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
+    flex-direction: column;
     .task{
         background-color: black;
         color: white;
@@ -120,9 +120,8 @@ body{
     position: absolute;
     bottom: -50px;
     left: 10px;
-    background-color: $azul-base;
-    box-shadow: 0 0 10px black;
-    border-radius: 10px;
+    background-color: $gris-base;
+    box-shadow: 6px 6px 10px black;
     .msj__notasks{
         font-weight: inherit;
     }
@@ -130,7 +129,6 @@ body{
 
 @media screen and (max-width: 768px){
     .max-container{
-        flex-direction: column;
-        align-items: center;
+        grid-template: 1fr 1fr 1fr / 1fr;
     }
 }
