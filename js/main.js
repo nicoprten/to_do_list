@@ -25,13 +25,10 @@ if(tasks === null || tasks.length === 0){
     $('#erased').hide();
 }
 
-let sdasds = document.getElementsByClassName('container__input');
-console.log(sdasds)
-
 let inputs = [...document.getElementsByClassName('container__input')];
-console.log(inputs)
+inputs[0].focus();
+
 inputs.forEach((input) => {
-    console.log(input);
     input.addEventListener('keypress', function(e){
         if(e.key === 'Enter'){
             addTask();
@@ -126,6 +123,7 @@ function addTask(){
     }
     document.getElementById('title').value = '';
     document.getElementById('desc').value = '';
+    inputs[0].focus();
 };
 
 // Get de feriados no laborables 
