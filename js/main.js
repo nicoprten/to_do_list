@@ -63,18 +63,18 @@ function showTasks(tasks){
     let container = '';
     let buttonPass = '';
     tasks.forEach((task) => {
-        if(task.status == 'added'){
+        if(task.status === 'added'){
             container = document.getElementById('added');
-            buttonPass = `<button class='task__button' onclick=passToDoing(${task.id})>TO DOING</button>`;
-            buttonPass += `<button class='task__button' onclick=passToDone(${task.id})>TO DONE</button>`;
-        }else if(task.status == 'doing'){
+            buttonPass = `<button class='task__button' onclick=changeStatus(${task.id},doing)>TO DOING</button>`;
+            buttonPass += `<button class='task__button' onclick=changeStatus(${task.id},done)>TO DONE</button>`;
+        }else if(task.status === 'doing'){
             container = document.getElementById('doing');
-            buttonPass = `<button class='task__button' onclick=passToAdded(${task.id})>TO ADDED</button>`;
-            buttonPass += `<button class='task__button' onclick=passToDone(${task.id})>TO DONE</button>`;
+            buttonPass = `<button class='task__button' onclick=changeStatus(${task.id},added)>TO ADDED</button>`;
+            buttonPass += `<button class='task__button' onclick=changeStatus(${task.id},done)>TO DONE</button>`;
         }else{
             container = document.getElementById('done');
-            buttonPass = `<button class='task__button' onclick=passToAdded(${task.id})>TO ADDED</button>`;
-            buttonPass += `<button class='task__button' onclick=passToDoing(${task.id})>TO DOING</button>`;
+            buttonPass = `<button class='task__button' onclick=changeStatus(${task.id},added)>TO ADDED</button>`;
+            buttonPass += `<button class='task__button' onclick=changeStatus(${task.id},doing)>TO DOING</button>`;
         }
         container.innerHTML += `
             <div id=${task.id} class='task'>
@@ -89,18 +89,9 @@ function showTasks(tasks){
     });
 };
 
-function passToDoing(id){
-    tasks.filter(task => task.id === id).map(task => task.status = 'doing');
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    showTasks(tasks);
-};
-function passToDone(id){
-    tasks.filter(task => task.id === id).map(task => task.status = 'done');
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    showTasks(tasks);
-};
-function passToAdded(id){
-    tasks.filter(task => task.id === id).map(task => task.status = 'added');
+function changeStatus(id, status){
+    console.log(status)
+    tasks.filter(task => task.id === id).map(task => task.status = status.id);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     showTasks(tasks);
 };
@@ -109,12 +100,10 @@ function addTask(){
     let title = document.getElementById('title').value;
     let desc = document.getElementById('desc').value;
     if(title !== '' && desc !== ''){
-        let task = new Task(0, title, desc, 'added');
+        let task = new Task(Date.now(), title, desc, 'added');
         tasks.push(task);
-        let id = Date.now();
-        task.id = id;
-        let taskJSON = JSON.stringify(tasks);
-        localStorage.setItem('tasks', taskJSON);
+        let tasksJSON = JSON.stringify(tasks);
+        localStorage.setItem('tasks', tasksJSON);
         showTasks(tasks);
     }else{
         popUps.innerHTML = `<h3 class='msj__notasks'>Enter a task please...</h3>`;
@@ -126,9 +115,7 @@ function addTask(){
     inputs[0].focus();
 };
 
-// Get de feriados no laborables 
-// TODO obtener el año actual
-
+// Get de feriados no laborables
 function getFeriados(){
     fetch(`http://nolaborables.com.ar/api/v2/feriados/${año}`)
     .then(response => response.json())
@@ -140,11 +127,13 @@ function mostrarProxFeriado(feriados){
     let mes = fecha.getMonth() + 1;
     let dia = fecha.getDate();
     let proxFeriado = feriados.filter(feriado => feriado.mes === mes).filter(feriado => feriado.dia >= dia);
-    if(proxFeriado.length === 0 && mes !== 12){
-        proxFeriado = feriados.filter(feriado => feriado.mes === mes + 1);
-        popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
-    }else if(mes === 12 && dia > 25){
-        popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: Año Nuevo 1/1</h3>`;
+    if(proxFeriado.length === 0){
+        if(mes !== 12){
+            proxFeriado = feriados.filter(feriado => feriado.mes === mes + 1);
+            popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
+        }else if(dia > 25){
+            popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: Año Nuevo 1/1</h3>`;
+        }
     }else{
         popUps.innerHTML += `<h3 class='msj__notasks'>Next holiday in Argentina: ${proxFeriado[0].motivo} ${proxFeriado[0].dia}/${proxFeriado[0].mes}.</h3>`;
     }
