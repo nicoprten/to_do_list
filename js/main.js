@@ -90,7 +90,6 @@ function showTasks(tasks){
 };
 
 function changeStatus(id, status){
-    console.log(status)
     tasks.filter(task => task.id === id).map(task => task.status = status.id);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     showTasks(tasks);
@@ -115,7 +114,7 @@ function addTask(){
     inputs[0].focus();
 };
 
-// Get de feriados no laborables
+
 function getFeriados(){
     fetch(`http://nolaborables.com.ar/api/v2/feriados/${año}`)
     .then(response => response.json())
