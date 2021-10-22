@@ -3,7 +3,6 @@
 
 <h2 style='text-align=center'>Design</h2>
 
-[![last_proyect_coder](https://user-images.githubusercontent.com/41525219/138458876-40907d54-4a9a-4753-8aca-c74788cb77ce.jpg)]
 
 <h3>Redes</h3>
 [![icon_behance_blue](https://user-images.githubusercontent.com/41525219/138456248-b19abbf2-a618-4506-bd0c-4915ac706cc3.png)][1]
