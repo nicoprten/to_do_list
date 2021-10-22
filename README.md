@@ -1,7 +1,7 @@
 <h1>TO DO LIST</h1>
 <p><i><b>HTML - SCSS - JS Vanila</b></i></p>
 
-Design
+<h2 style='text-align=center'>Design</h2>
 ![last_proyect_coder](https://user-images.githubusercontent.com/41525219/138455097-0b0a0b02-7754-4cbd-ba08-2057dd026b11.jpg)
 
 
