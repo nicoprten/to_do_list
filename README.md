@@ -3,7 +3,7 @@
 
 <h2>Design</h2>
 
-![todolist_show_git](https://user-images.githubusercontent.com/41525219/138459670-ee600343-61d2-44b4-9641-07a2bcf0c596.png)
+![todolist_show_git](https://user-images.githubusercontent.com/41525219/138459793-1d12d720-ed6d-4020-b609-26850f2fcb08.png)
 
 <h3>Redes</h3>
 
