@@ -1,7 +1,7 @@
 <h1>TO DO LIST</h1>
 <p><i><b>HTML - SCSS - JS Vanila</b></i></p>
 
-<h2 style='text-align=center'>Design</h2>
+<h2>Design</h2>
 
 
 <h3>Redes</h3>
