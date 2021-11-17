@@ -1,7 +1,8 @@
 <div align='center'>
 <h1>TO DO LIST</h1>
+<p><i><b>Trabajo para el proyecto final del curso de Javascript en CoderHouse</b></i></p>
 <p><i><b>HTML - SCSS - JS Vanila</b></i></p>
-
+  
 <h2>Design</h2>
 
 ![todolist_show_git](https://user-images.githubusercontent.com/41525219/138459793-1d12d720-ed6d-4020-b609-26850f2fcb08.png)
