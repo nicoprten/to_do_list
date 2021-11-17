@@ -1,6 +1,6 @@
 <div align='center'>
 <h1>TO DO LIST</h1>
-<p><i><b>Trabajo para el proyecto final del curso de Javascript en CoderHouse</b></i></p>
+<p><i><b>Proyecto final del curso de Javascript en CoderHouse</b></i></p>
 <p><i><b>HTML - SCSS - JS Vanila</b></i></p>
   
 <h2>Design</h2>
