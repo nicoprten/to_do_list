@@ -1,13 +1,13 @@
 <div align='center'>
 <h1>TO DO LIST</h1>
-<p><i><b>Proyecto final del curso de Javascript en CoderHouse</b></i></p>
+<p><i><b>Final project of the Javascript course at CoderHouse.</b></i></p>
 <p><i><b>HTML - SCSS - JS Vanila</b></i></p>
   
 <h2>Design</h2>
 
 ![todolist_show_git](https://user-images.githubusercontent.com/41525219/138459793-1d12d720-ed6d-4020-b609-26850f2fcb08.png)
 
-<h3>Redes</h3>
+<h3>Contact me</h3>
 
 [![icon_behance_blue](https://user-images.githubusercontent.com/41525219/138456248-b19abbf2-a618-4506-bd0c-4915ac706cc3.png)][1]
 [![icon_github_blue](https://user-images.githubusercontent.com/41525219/138456252-fe8b248e-414b-400a-a50f-5591f28c6900.png)][2]
